@@ -1,0 +1,137 @@
+/* src/components/Sections/Contact.css - UPDATED */
+@import './SectionCommon.css';
+
+.contact-section {
+  composes: section-common;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+
+.contact-preview-card {
+  composes: preview-card;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: var(--spacing-lg);
+  border: 2px solid var(--color-gray-light);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-preview-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-preview-card.primary-contact {
+  border-color: var(--color-secondary);
+  background: linear-gradient(135deg, var(--color-accent), rgba(141, 216, 255, 0.1));
+}
+
+.contact-preview-card.primary-contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 40px 40px 0;
+  border-color: transparent var(--color-secondary) transparent transparent;
+}
+
+.contact-preview-card.primary-contact::after {
+  content: '★';
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  color: var(--color-white);
+  font-size: 0.8rem;
+}
+
+.contact-preview-platform {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.contact-preview-icon {
+  font-size: 2rem;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  min-width: 40px;
+  text-align: center;
+}
+
+.contact-preview-platform-name {
+  font-size: 1.3rem;
+  color: var(--color-primary-dark);
+  margin: 0;
+  flex: 1;
+}
+
+.contact-preview-username {
+  margin: 0 0 var(--spacing-md) 0;
+  color: var(--color-gray);
+  font-size: 0.95rem;
+  padding-left: calc(40px + var(--spacing-md)); /* Align with icon */
+}
+
+.contact-preview-label {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: var(--color-white);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive design */
+@media (min-width: 640px) {
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Animation */
+.contact-preview-card {
+  animation: fadeIn 0.6s ease forwards;
+  opacity: 0;
+  animation-delay: calc(var(--item-index, 0) * 0.1s);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Remove duplicate styles that are now in SectionCommon.css */

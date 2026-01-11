@@ -1,0 +1,284 @@
+/* src/components/Navigation.css - FINAL VERSION */
+.navigation {
+  position: sticky;
+  top: 0;
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-gray-light);
+  z-index: 1000;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.navigation.scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Desktop Navigation */
+.nav-desktop {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 var(--spacing-lg);
+}
+
+.nav-links-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  flex: 1;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: var(--color-gray-dark);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: var(--spacing-xs) 0;
+  position: relative;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+.nav-link.active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  transition: width 0.3s ease;
+  border-radius: var(--radius-sm);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 120px;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+
+/* Mobile Navigation */
+.nav-mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding: 0 var(--spacing-md);
+}
+
+.nav-logo-mobile {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-gray-dark);
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  transition: all 0.2s;
+}
+
+.menu-toggle:hover {
+  background: var(--color-accent);
+  color: var(--color-primary);
+}
+
+/* Mobile Menu Overlay - UPDATED FOR SCROLLABILITY */
+.nav-mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+  z-index: 1001;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Changed from default */
+}
+
+.nav-mobile-menu.open {
+  transform: translateX(0);
+}
+
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding: 0 var(--spacing-md);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+.mobile-menu-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.menu-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-white);
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  transition: all 0.2s;
+}
+
+.menu-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Scrollable mobile menu links - UPDATED */
+.mobile-menu-links {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-xl) var(--spacing-md);
+  gap: var(--spacing-md);
+  overflow-y: auto; /* Enable vertical scrolling */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  overscroll-behavior: contain; /* Prevent scroll chaining */
+  min-height: 0; /* Important for flex scrolling */
+}
+
+.mobile-nav-link {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: var(--color-white);
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: var(--spacing-md) var(--spacing-lg);
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  flex-shrink: 0; /* Prevent links from shrinking */
+}
+
+.mobile-nav-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.mobile-nav-link.active {
+  background: var(--color-secondary);
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+/* Mobile menu footer for extra space at bottom */
+.mobile-menu-footer {
+  padding: var(--spacing-md);
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  flex-shrink: 0; /* Prevent footer from shrinking */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom scrollbar for mobile menu */
+.mobile-menu-links::-webkit-scrollbar {
+  width: 4px;
+}
+
+.mobile-menu-links::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+}
+
+.mobile-menu-links::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-sm);
+}
+
+.mobile-menu-links::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .nav-mobile-header {
+    display: none;
+  }
+  
+  .nav-desktop {
+    display: flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-desktop {
+    padding: 0 var(--spacing-xl);
+    height: 85px;
+  }
+  
+  .nav-link {
+    font-size: 1rem;
+  }
+}
+
+body.menu-open {
+  overflow: hidden;
+}

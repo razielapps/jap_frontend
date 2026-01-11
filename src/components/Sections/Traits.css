@@ -1,0 +1,127 @@
+/* Add to src/components/Sections/Traits.css */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.view-detail-button {
+  padding: 0.5rem 1rem;
+  background: #d53f8c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.view-detail-button:hover {
+  background: #b83280;
+}
+
+.section-footer {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.traits-preview {
+  margin-bottom: 1.5rem;
+}
+
+.traits-preview h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #4a5568;
+}
+
+.additional-traits {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.additional-trait {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+}
+
+.trait-icon-small {
+  font-size: 1rem;
+}
+
+.trait-name-small {
+  font-weight: 500;
+  color: #2d3748;
+  font-size: 0.9rem;
+}
+
+.view-more-button {
+  background: none;
+  border: none;
+  color: #d53f8c;
+  cursor: pointer;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.view-more-button:hover {
+  background: #fed7e2;
+  text-decoration: underline;
+}
+
+.truncate-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trait-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.trait-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.trait-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.trait-icon {
+  font-size: 1.5rem;
+}
+
+.trait-name {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #2d3748;
+}
+
+.trait-comment {
+  margin: 0;
+  line-height: 1.5;
+  color: #4a5568;
+}

@@ -1,0 +1,113 @@
+/* src/components/Sections/Interests.css - UPDATED */
+@import './SectionCommon.css';
+
+.interests-section {
+  composes: section-common;
+}
+
+.interests-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+
+.interest-preview-card {
+  composes: preview-card;
+  position: relative;
+  padding: var(--spacing-lg);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.interest-preview-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.interest-preview-card:hover::before {
+  transform: scaleX(1);
+}
+
+.interest-preview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.interest-preview-name {
+  font-size: 1.3rem;
+  color: var(--color-primary-dark);
+  margin: 0 0 var(--spacing-xs) 0;
+  font-weight: 600;
+}
+
+.interest-preview-meta {
+  margin-bottom: var(--spacing-md);
+}
+
+.interest-preview-since {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+  background: var(--color-accent);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+}
+
+.interest-preview-since::before {
+  content: '📅';
+}
+
+.interest-preview-description {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--color-gray-dark);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.95rem;
+}
+
+/* Responsive design */
+@media (min-width: 640px) {
+  .interests-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .interests-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Animation */
+.interest-preview-card {
+  animation: fadeIn 0.6s ease forwards;
+  opacity: 0;
+  animation-delay: calc(var(--item-index, 0) * 0.1s);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
