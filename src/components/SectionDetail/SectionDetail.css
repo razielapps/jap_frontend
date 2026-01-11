@@ -532,6 +532,8 @@
   }
 }
 
+
+
 @media (min-width: 1024px) {
   .section-detail-container {
     padding: var(--spacing-xl) var(--spacing-xl);
@@ -615,4 +617,47 @@
 .projects-detail {
   display: grid;
   gap: var(--spacing-md);
+}
+
+
+@media (max-width: 450px) {
+
+  .section-detail-container {
+    padding: var(--spacing-xs);
+
+  }
+
+   .detail-title {
+    font-size: 1.5rem;
+  }
+  .certifications-detail,
+  .blog-detail,
+  .projects-detail,
+  .interests-detail,
+  .traits-detail,
+  .contact-detail,
+  .spec-details,
+  .project-details,
+  .learning-detail,
+  .specializations-grid,
+.skills-grid,
+.interests-detail,
+.traits-detail,
+.contacts-grid,
+.certifications-detail,
+.learning-detail,
+.blog-detail,
+.projects-detail{
+    gap: var(--spacing-sm);
+}
+.detail-content{
+  padding: var(--spacing-sm);
+  
+}
+
+
+
+
+
+  
 }
