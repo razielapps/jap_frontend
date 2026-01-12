@@ -426,7 +426,7 @@ export const SectionDetail: React.FC<SectionDetailProps> = ({
                     className={`contact-detail-card ${contact.is_primary ? 'primary' : ''}`}
                   >
                     <div className="contact-platform">
-                      <span className="contact-icon">{getPlatformIcon(contact.platform)}</span>
+                      
                       <div className="contact-info">
                         <h3>{contact.platform}</h3>
                         {contact.username && (
@@ -434,9 +434,7 @@ export const SectionDetail: React.FC<SectionDetailProps> = ({
                         )}
                       </div>
                     </div>
-                    {contact.is_primary && (
-                      <span className="primary-badge">Primary Contact</span>
-                    )}
+                 
                   </a>
                 ))}
               </div>
