@@ -29,15 +29,14 @@ export const Loading: React.FC<LoadingProps> = ({
     <>
       <div className="loading-spinner"></div>
       <p>
-        {message}
+      
         <span className="loading-dots">
           <span></span>
           <span></span>
           <span></span>
         </span>
       </p>
-      {subtext && <p className="loading-subtext">{subtext}</p>}
-    </>
+          </>
   );
 
   if (variant === 'card') {
